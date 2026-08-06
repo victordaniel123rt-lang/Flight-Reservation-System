@@ -19,6 +19,7 @@
         <module>customer-service</module>
         <module>reservation-service</module>
         <module>common-dtos</module>
+        <module>payment-service</module>
     </modules>
 
     <properties>
