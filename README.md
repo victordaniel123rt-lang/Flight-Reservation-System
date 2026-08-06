@@ -178,13 +178,9 @@ Cada servicio normalmente usa variables y propiedades Spring:
 2. Implementa y agrega tests.
 3. Abre un Pull Request con descripción clara.
 
-## Licencia
-
-Añade la licencia que corresponda (por ejemplo MIT) en un archivo `LICENSE`.
-
 ## Contacto / Soporte
 
-- Agrega aquí un email o link al issue tracker del repo si quieres recibir reportes.
+- victordaniel.123rt@gmail.com
 
 ---
-Si quieres, adapto el README a los nombres exactos de módulos y endpoints que ya están en tu repo (puedo leer los archivos y generar un README que refleje rutas/puertos/propiedades exactas). También puedo añadir un ejemplo de `docker-compose.yml` y archivos de entorno (.env) listos para usar.
+
