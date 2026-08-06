@@ -18,6 +18,7 @@
         <module>discovery-server</module>
         <module>customer-service</module>
         <module>reservation-service</module>
+        <module>common-dtos</module>
     </modules>
 
     <properties>

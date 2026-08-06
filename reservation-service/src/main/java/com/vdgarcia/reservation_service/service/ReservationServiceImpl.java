@@ -1,5 +1,6 @@
 package com.vdgarcia.reservation_service.service;
 
+import com.vdgarcia.events.ReservationCreada;
 import com.vdgarcia.reservation_service.cliente.CustomerClient;
 import com.vdgarcia.reservation_service.cliente.FlightClient;
 import com.vdgarcia.reservation_service.cliente.dto.CustomerDTO;
@@ -8,6 +9,7 @@ import com.vdgarcia.reservation_service.cliente.dto.FlightDTO;
 import com.vdgarcia.reservation_service.dto.ReservationDTO;
 import com.vdgarcia.reservation_service.mapper.Mapper;
 import com.vdgarcia.reservation_service.model.Reservation;
+import com.vdgarcia.reservation_service.publisher.inter.CreatedEventPublisher;
 import com.vdgarcia.reservation_service.repository.ReservationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,7 @@ public class ReservationServiceImpl implements ReservationService{
     private final ReservationRepository repository;
     private final CustomerClient customerClient;
     private final FlightClient flightClient;
+    private final CreatedEventPublisher publisher;
 
     @Override
     public ReservationDTO crear(ReservationDTO dto) {
@@ -44,7 +47,13 @@ public class ReservationServiceImpl implements ReservationService{
                 .build();
         Reservation creada = repository.save(reservation);
 
-
+        ReservationCreada event = ReservationCreada.builder()
+                .reservationId(creada.getId())
+                .flightId(creada.getFlighId())
+                .customerId(creada.getCustomerId())
+                .date(LocalDate.now())
+                .build();
+        publisher.publishReservationCreated(event);
 
         return Mapper.toReservationDTO(creada);
     }
