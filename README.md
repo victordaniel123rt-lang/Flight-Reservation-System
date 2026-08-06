@@ -6,7 +6,7 @@ Repositorio que simula una PLATAFORMA DE RESERVACIÓN DE VUELOS basada en una ar
 
 ## Arquitectura
 
-(Adjunta o coloca la imagen del diagrama de arquitectura en `docs/vuelos.png` o en la raíz del repo)
+![Arquitectura del sistema](docs/vuelos.png)
 
 - API Gateway (Spring Cloud Gateway)
 - Eureka Discovery Server (Netflix Eureka)
